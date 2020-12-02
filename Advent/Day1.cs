@@ -23,40 +23,6 @@ public class Day1
         return nums;
     }
 
-    public static void Part2() {
-        List<int> nums = getSortedList(@"inputday1.txt");
-
-        int middle, largest, product = 0, sum = 0;
-
-        // Basically doing the same thing as the first part, except doing an extra iteration
-        for (int smallest = 0; smallest < nums.Count - 2; smallest++) {
-            middle = smallest + 1;
-            largest = nums.Count - 1;
-
-            while (sum != 2020 && (middle <= largest)) {
-                sum = nums[smallest] + nums[middle] + nums[largest];
-
-                // number too small, move to a bigger number
-                if (sum < 2020) {
-                    middle++;
-                }
-                // number too big, move to smaller number
-                else if (sum > 2020) {
-                    largest--;
-                }
-            }
-
-            if (sum == 2020) {
-                product = nums[smallest] * nums[middle] * nums[largest];
-                break;
-            }
-        }
-
-        Console.WriteLine("The solution to Part 2 is {0}", product);
-        Console.ReadLine();
-
-    }
-
     public static void Part1() {
         try {
             List<int> nums = getSortedList(@"inputday1.txt");
@@ -95,5 +61,41 @@ public class Day1
             Console.ReadLine();
         }
     }
+
+    public static void Part2() {
+        List<int> nums = getSortedList(@"inputday1.txt");
+
+        int middle, largest, product = 0, sum = 0;
+
+        // Basically doing the same thing as the first part, except doing an extra iteration
+        for (int smallest = 0; smallest < nums.Count - 2; smallest++) {
+            middle = smallest + 1;
+            largest = nums.Count - 1;
+
+            while (sum != 2020 && (middle <= largest)) {
+                sum = nums[smallest] + nums[middle] + nums[largest];
+
+                // number too small, move to a bigger number
+                if (sum < 2020) {
+                    middle++;
+                }
+                // number too big, move to smaller number
+                else if (sum > 2020) {
+                    largest--;
+                }
+            }
+
+            if (sum == 2020) {
+                product = nums[smallest] * nums[middle] * nums[largest];
+                break;
+            }
+        }
+
+        Console.WriteLine("The solution to Part 2 is {0}", product);
+        Console.ReadLine();
+
+    }
+
+
 
 }
