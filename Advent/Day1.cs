@@ -24,7 +24,7 @@ public class Day1
     }
 
     public static void Part2() {
-        List<int> nums = getSortedList("input.txt");
+        List<int> nums = getSortedList(@"inputday1.txt");
 
         int middle, largest, product = 0, sum = 0;
 
@@ -59,7 +59,7 @@ public class Day1
 
     public static void Part1() {
         try {
-            List<int> nums = getSortedList("input.txt");
+            List<int> nums = getSortedList(@"inputday1.txt");
 
             int smallest = 0;
             int largest = nums.Count - 1;
